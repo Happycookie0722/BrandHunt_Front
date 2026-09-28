@@ -5,8 +5,8 @@
     <div v-else-if="error" class="state error">{{ error }}</div>
     <div v-else class="product-grid">
       <button v-for="item in products" :key="item.id" class="product-card" type="button" @click="goToDetail(item.id)">
-        <img :src="item.img" :alt="item.name" />
-        <p class="brand">{{ item.brand?.name }}</p>
+        <img :src="item.imageUrl" :alt="item.name" />
+        <p class="brand">{{ item.brand }}</p>
         <p class="name">{{ item.name }}</p>
         <p class="price">{{ formatPrice(item.salePrice || item.price) }}원</p>
       </button>
