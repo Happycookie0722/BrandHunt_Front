@@ -22,6 +22,11 @@ const routes = [
     name: 'signup',
     component: () => import('../views/signup.vue')
   },
+  {
+    path: '/products/:id',
+    name: 'product-detail',
+    component: () => import('../views/ProductDetail.vue')
+  },
 ];
 const router = createRouter({
   history: createWebHistory('/'),
