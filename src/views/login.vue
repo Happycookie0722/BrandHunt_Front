@@ -20,6 +20,7 @@
   
   <script setup>
   import axios from 'axios';
+  import { API_BASE_URL } from '@/api';
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
   
@@ -31,7 +32,7 @@
   const login = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:8000/auth/login',
+        `${API_BASE_URL}/auth/login`,
         {
           email: id.value,
           password: pass.value,

@@ -16,6 +16,7 @@
 
 <script setup>
 import axios from 'axios'
+import { API_BASE_URL } from '@/api'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -26,7 +27,7 @@ const error = ref('')
 
 const loadProducts = async () => {
   try {
-    const response = await axios.get('http://localhost:8000/products/list')
+    const response = await axios.get(`${API_BASE_URL}/products/list`)
     products.value = response.data
   } catch (e) {
     console.error('상품 목록 조회 실패', e)

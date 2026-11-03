@@ -28,6 +28,7 @@
   <script setup>
   import { ref } from 'vue'
   import axios from 'axios'
+  import { API_BASE_URL } from '@/api'
   import { useRouter } from 'vue-router'
   
   const email = ref('')
@@ -50,7 +51,7 @@
   
     try {
       isSending.value = true
-      await axios.post('http://localhost:8000/auth/send-verification', {
+      await axios.post(`${API_BASE_URL}/auth/send-verification`, {
         email: email.value,
       })
       emailSent.value = true
@@ -68,7 +69,7 @@
   
     try {
       isSending.value = true
-      await axios.post('http://localhost:8000/auth/send-verification', {
+      await axios.post(`${API_BASE_URL}/auth/send-verification`, {
         email: email.value,
       })
       errorMsg.value = ''
@@ -82,7 +83,7 @@
   
   const verifyCode = async () => {
     try {
-      await axios.post('http://localhost:8000/auth/verify-code', {
+      await axios.post(`${API_BASE_URL}/auth/verify-code`, {
         email: email.value,
         code: verificationCode.value,
       })
@@ -102,7 +103,7 @@
   
     try {
       isSending.value = true
-      await axios.post('http://localhost:8000/auth/signup', {
+      await axios.post(`${API_BASE_URL}/auth/signup`, {
         email: email.value,
         nickname: nickname.value,
         password: password.value,
