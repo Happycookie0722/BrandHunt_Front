@@ -23,6 +23,7 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { API_BASE_URL } from '@/api'
 import SearchBar from '../components/SearchBar.vue'
 import HotKeywords from '../components/HotKeywords.vue'
 import PopularProducts from '@/components/PopularProducts.vue'
@@ -41,7 +42,7 @@ const runScraping = async () => {
   try {
     const accessToken = localStorage.getItem('accessToken')
     const response = await axios.post(
-      'http://localhost:8000/admin/scraping',
+      `${API_BASE_URL}/admin/scraping`,
       {},
       {
         withCredentials: true,
