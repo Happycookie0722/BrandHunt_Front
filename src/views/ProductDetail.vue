@@ -32,6 +32,7 @@
 
 <script setup>
 import axios from 'axios'
+import { API_BASE_URL } from '@/api'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -41,7 +42,6 @@ const product = ref(null)
 const loading = ref(true)
 const error = ref('')
 const alertEnabled = ref(false)
-const API_BASE_URL = 'http://localhost:8000'
 
 const accessToken = () => localStorage.getItem('accessToken')
 const authConfig = () => ({
